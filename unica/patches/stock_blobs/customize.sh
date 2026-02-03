@@ -82,7 +82,11 @@ else
         DELETE_FROM_WORK_DIR "vendor" "saiv/image_understanding/db/smartscan_rectifier"
     fi
 fi
-DELETE_FROM_WORK_DIR "system" "system/saiv/textrecognition"
+
+if [ -d "$WORK_DIR/system/system/saiv/textrecognition" ]; then
+    DELETE_FROM_WORK_DIR "system" "system/saiv/textrecognition"
+fi
+
 ADD_TO_WORK_DIR "$SOURCE_FIRMWARE" "system" "system/saiv/textrecognition" 0 0 755 "u:object_r:system_file:s0"
 
 if [ -f "$FW_DIR/$TARGET_FIRMWARE_PATH/system/system/usr/share/alsa/alsa.conf" ]; then
