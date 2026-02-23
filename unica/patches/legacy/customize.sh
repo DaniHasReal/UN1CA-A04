@@ -254,14 +254,12 @@ if [ -f "$WORK_DIR/system/system/bin/sbauth" ] && \
     DELETE_FROM_WORK_DIR "system" "system/etc/init/sbauth.rc"
 fi
 
-# Ensure PASS support (pre-API 35)
-if [ "$TARGET_PLATFORM_SDK_VERSION" -lt "35" ]; then
-    if ! grep -q "sec_pass_data_file" "$WORK_DIR/vendor/etc/selinux/vendor_file_contexts"; then
-        PATCHED=true
-        SMALI_PATCH "system" "system/framework/services.jar" \
-            "smali/com/android/server/StorageManagerService.smali" "return" \
-            'isPassSupport()Z' 'false'
-    fi
+# Ensure PASS support
+if ! grep -q "sec_pass_data_file" "$WORK_DIR/vendor/etc/selinux/vendor_file_contexts"; then
+    PATCHED=true
+    SMALI_PATCH "system" "system/framework/services.jar" \
+        "smali/com/android/server/StorageManagerService.smali" "return" \
+        'isPassSupport()Z' 'false'
 fi
 
 # Support legacy usb_notify kernel drivers (pre-API 36)
