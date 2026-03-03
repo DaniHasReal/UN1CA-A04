@@ -83,11 +83,6 @@ else
     fi
 fi
 
-if [[ "$(GET_FLOATING_FEATURE_CONFIG "$FW_DIR/$TARGET_FIRMWARE_PATH/system/system/etc/floating_feature.xml" "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEVICE_MANUFACTURING_TYPE")" == "jdm" ]]; then
-    DELETE_FROM_WORK_DIR "system" "system/priv-app/SamsungCamera"
-    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "system/priv-app/SamSungCamera" 0 0 755 "u:object_r:system_file:s0"
-fi
-
 # Single take "stp1-release" app flavor
 if grep -q "SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS.*true" "$FW_DIR/$SOURCE_FIRMWARE_PATH/system/system/cameradata/camera-feature.xml" 2> /dev/null && \
         ! grep -q "SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS.*true" "$WORK_DIR/system/system/cameradata/camera-feature.xml" 2> /dev/null; then
@@ -99,6 +94,12 @@ elif ! grep -q "SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS.*true" "$FW_DIR/$SOURCE_FIR
     TARGET_SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS=true
     LOG_MISSING_PATCHES "SOURCE_SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS" "TARGET_SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS"
     unset SOURCE_SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS TARGET_SUPPORT_SINGLE_TAKE_HIGHLIGHT_VIDEOS
+fi
+
+if [[ "$(GET_FLOATING_FEATURE_CONFIG "$FW_DIR/$TARGET_FIRMWARE_PATH/system/system/etc/floating_feature.xml" "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEVICE_MANUFACTURING_TYPE")" == "jdm" ]]; then
+    DELETE_FROM_WORK_DIR "system" "system/priv-app/SamsungCamera"
+    DELETE_FROM_WORK_DIR "system" "system/priv-app/SingleTakeService"
+    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" "system" "system/priv-app/SamSungCamera" 0 0 755 "u:object_r:system_file:s0"
 fi
 
 # SEC_PRODUCT_FEATURE_CAMERA_CONFIG_ACTION_CLASSIFIER
