@@ -194,9 +194,9 @@ if [ "$TARGET_PLATFORM_SDK_VERSION" -lt "35" ]; then
 fi
 
 # Ensure Knox Matrix support
-# - Check if target firmware runs on One UI 5.1.1 or above
+# - Check if target firmware includes Knox Matrix Service
 TARGET_FIRMWARE_PATH="$(cut -d "/" -f 1 -s <<< "$TARGET_FIRMWARE")_$(cut -d "/" -f 2 -s <<< "$TARGET_FIRMWARE")"
-if [ "$(GET_PROP "$FW_DIR/$TARGET_FIRMWARE_PATH/system/system/build.prop" "ro.build.version.oneui")" -lt "50101" ]; then
+if [ ! -d "$FW_DIR/$TARGET_FIRMWARE_PATH/system/system/priv-app/KmxService" ]; then
     PATCHED=true
     DELETE_FROM_WORK_DIR "system" "system/bin/fabric_crypto"
     DELETE_FROM_WORK_DIR "system" "system/etc/init/fabric_crypto.rc"
