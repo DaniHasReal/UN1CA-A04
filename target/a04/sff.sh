@@ -1,7 +1,7 @@
 # Copyright (c) 2025 Salvo Giangreco
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-# SEC Floating Feature configuration file for Galaxy A05s
+# SEC Floating Feature configuration file for Galaxy A04
 
 # Enable Video brightness feature
 SEC_FLOATING_FEATURE_COMMON_SUPPORT_HDR_EFFECT=true
