@@ -7,6 +7,8 @@ GET_FINGERPRINT_SENSOR_TYPE()
         echo "optical"
     elif [[ "$1" == *"side"* ]]; then
         echo "side"
+    elif [[ "$1" == *"none"* ]]; then
+        echo "none"
     else
         ABORT "Unknown fingerprint sensor type: \"$1\". Aborting"
     fi
@@ -394,6 +396,8 @@ if [[ "$SOURCE_FINGERPRINT_CONFIG_SENSOR" != "$TARGET_FINGERPRINT_CONFIG_SENSOR"
                         "sput-boolean v2, Lcom/android/server/biometrics/SemBiometricFeature;->FP_FEATURE_WOF_OPTION_DEFAULT_OFF:Z" \
                         > /dev/null
                 fi
+            elif [[ "$(GET_FINGERPRINT_SENSOR_TYPE "$TARGET_FINGERPRINT_CONFIG_SENSOR")" == "none" ]]; then
+                LOG "- Skipping SPF patches: target has no fingerprint sensor"
             elif [[ "$(GET_FINGERPRINT_SENSOR_TYPE "$TARGET_FINGERPRINT_CONFIG_SENSOR")" != "ultrasonic" ]]; then
                 # TODO handle this condition
                 LOG_MISSING_PATCHES "SOURCE_FINGERPRINT_CONFIG_SENSOR" "TARGET_FINGERPRINT_CONFIG_SENSOR"
