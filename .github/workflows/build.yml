@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [a04]
+        target: [a04, a04m]
 
     steps:
       - name: Checkout repo
@@ -85,5 +85,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: UN1CA-A04
+          name: UN1CA-${{ matrix.target }}
           path: out/*.zip
