@@ -64,7 +64,7 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 - [KnoxPatch](https://github.com/salvogiangri/KnoxPatch) integrated
 - Extra CSC features enabled (Call recording, Hiya, Network speed in status bar, AltZLife)
 
-\* Not available on MediaTek devices<br>
+\*Available on MediaTek devices<br>
 \*\* DeX via HDMI not available for devices without USB-C DP support
 
 ### UN1CA-exclusive features:
