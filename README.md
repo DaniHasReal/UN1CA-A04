@@ -98,6 +98,8 @@ This project is licensed under the terms of the [GNU General Public License v3.0
 
 # Credits
 A special thanks goes to the following for their invaluable contributions in no particular order:
+- **[salvogiangri](https://github.com/salvogiangri)** for the original UN1CA project
+- **[furbanoramos21](https://github.com/furbanoramos21-testing)** and **[7jari](https://github.com/7jari)** for the A05s base used to build for the A04 :)
 - **[ShaDisNX255](https://github.com/ShaDisNX255)** for his help, time and for his [NcX ROM](https://github.com/ShaDisNX255/NcX_Stock) which inspired this project
 - **[DavidArsene](https://github.com/DavidArsene)** for his help and time
 - **[paulowesll](https://github.com/paulowesll)** for his help and support
