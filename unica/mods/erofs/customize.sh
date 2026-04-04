@@ -8,14 +8,19 @@ _LOG() { if $DEBUG; then LOGW "$1"; else ABORT "$1"; fi }
 
 PATCH_FSTAB()
 {
-    local f
+    local f fstab_name
 
     while IFS= read -r f; do
         if [[ "$f" == *"emmc" ]] || [[ "$f" == *"ramplus" ]]; then
             continue
         fi
+        fstab_name="$(basename "$f")"
         LOG "- Patching $(sed -e "s|$WORK_DIR||g" -e "s|$TMP_DIR/out/ramdisk_extracted|$BOOT_FILE|g" <<< "$f")"
-        EVAL "cp -a \"$WORK_DIR/unica/mods/erofs/fstab/$(basename \"$f\")\" \"$f\""
+        if [ -f "$MODPATH/fstab/$fstab_name" ]; then
+            EVAL "cp -a \"$MODPATH/fstab/$fstab_name\" \"$f\""
+        else
+            LOG "\033[0;33m! No custom fstab for $fstab_name, skipping\033[0m"
+        fi
     done < <(find "$1" -type f -name "fstab.*")
 }
 # ]
