@@ -2,10 +2,10 @@
   <img loading="lazy" src="readme-res/banner.png"/>
 </h1>
 <p align="center">
-  <a href="https://github.com/salvogiangri/UN1CA/blob/sixteen/LICENSE"><img loading="lazy" src="https://img.shields.io/github/license/salvogiangri/UN1CA?style=for-the-badge&logo=github"/></a>
-  <a href="https://github.com/salvogiangri/UN1CA/commits/sixteen"><img loading="lazy" src="https://img.shields.io/github/last-commit/salvogiangri/UN1CA/sixteen?style=for-the-badge"/></a>
+  <a href="https://github.com/DaniHasReal/UN1CA/blob/sixteen/LICENSE"><img loading="lazy" src="https://img.shields.io/github/license/salvogiangri/UN1CA?style=for-the-badge&logo=github"/></a>
+  <a href="https://github.com/DaniHasReal/UN1CA/commits/sixteen"><img loading="lazy" src="https://img.shields.io/github/last-commit/salvogiangri/UN1CA/sixteen?style=for-the-badge"/></a>
   <a href="https://github.com/salvogiangri/UN1CA/stargazers"><img loading="lazy" src="https://img.shields.io/github/stars/salvogiangri/UN1CA?style=for-the-badge"/></a>
-  <a href="https://github.com/salvogiangri/UN1CA/actions/workflows/build.yml"><img loading="lazy" src="https://img.shields.io/github/actions/workflow/status/salvogiangri/UN1CA/build.yml?style=for-the-badge"/></a>
+  <a href="https://github.com/DaniHasReal/UN1CA/actions/workflows/build.yml"><img loading="lazy" src="https://img.shields.io/github/actions/workflow/status/salvogiangri/UN1CA/build.yml?style=for-the-badge"/></a>
   <a href="https://crowdin.com/project/UN1CA"><img loading="lazy" src="https://img.shields.io/badge/Crowdin-263238?style=for-the-badge&logo=crowdin"/></a>
 </p>
 <p align="center">UN1CA <i>(/ˈu.ni.ka/)</i> is a work-in-progress custom firmware for Samsung Galaxy devices.</p>
@@ -29,7 +29,7 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 # Features
 ### Core features:
 - Based on the latest stable Galaxy S22 firmware
-- EROFS powered
+- EROFS powered (subject to change)
 - Galaxy S25 wallpapers/sounds included
 - Galaxy AI support
   - Audio eraser
@@ -64,7 +64,7 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 - [KnoxPatch](https://github.com/salvogiangri/KnoxPatch) integrated
 - Extra CSC features enabled (Call recording, Hiya, Network speed in status bar, AltZLife)
 
-\*Available on MediaTek devices<br>
+\*Not available on MediaTek devices<br>
 \*\* DeX via HDMI not available for devices without USB-C DP support
 
 ### UN1CA-exclusive features:
