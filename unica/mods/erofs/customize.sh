@@ -15,7 +15,7 @@ PATCH_FSTAB()
             continue
         fi
         LOG "- Patching $(sed -e "s|$WORK_DIR||g" -e "s|$TMP_DIR/out/ramdisk_extracted|$BOOT_FILE|g" <<< "$f")"
-        EVAL "cp -a \"$SRC_DIR/unica/mods/erofs/fstab/$(basename \"$f\")\" \"$f\""
+        EVAL "cp -a \"$WORK_DIR/unica/mods/erofs/fstab/$(basename \"$f\")\" \"$f\""
     done < <(find "$1" -type f -name "fstab.*")
 }
 # ]
