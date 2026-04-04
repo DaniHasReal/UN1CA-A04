@@ -24,8 +24,8 @@ product	/product	erofs	ro	wait,avb,logical,first_stage_mount,
 
 
 odm	/odm	f2fs	ro	wait,avb,logical,first_stage_mount,
-odm	/odm	f2fs	ro	wait,avb,logical,first_stage_mount,
-odm	/odm	f2fs	ro	wait,avb,logical,first_stage_mount,
+odm	/odm	ext4	ro	wait,avb,logical,first_stage_mount,
+odm	/odm	erofs	ro	wait,avb,logical,first_stage_mount,
 # 157 "vendor/mediatek/proprietary/hardware/fstab/mt6765/fstab.in.mt6765"
 /dev/block/by-name/md_udc	/metadata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,check,formattable,first_stage_mount
 
