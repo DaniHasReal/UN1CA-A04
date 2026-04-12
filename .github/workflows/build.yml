@@ -82,8 +82,8 @@ jobs:
           source ./buildenv.sh ${{ matrix.target }}
           ./scripts/make_rom.sh
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: UN1CA-${{ matrix.target }}
-          path: out/*.zip
+      - name: Upload to Pixeldrain
+        run: |
+          curl -T out/*.zip \
+          -u :${{ secrets.PIXELDRAIN_API_KEY }} \
+          https://pixeldrain.com/api/file/UN1CA-a34x.zip
