@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [a04, a04m]
+        target: [a34x]
 
     steps:
       - name: Checkout repo
