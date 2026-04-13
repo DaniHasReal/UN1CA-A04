@@ -80,10 +80,10 @@ jobs:
       - name: Build ROM
         run: |
           source ./buildenv.sh ${{ matrix.target }}
-          ./scripts/make_rom.sh
+          ./scripts/make_rom.sh -z
 
       - name: Upload to Pixeldrain
         run: |
-          curl -T out/*.zip \
+          curl -T out/UN1CA-*.zip \
           -u :${{ secrets.PIXELDRAIN_API_KEY }} \
-          https://pixeldrain.com/api/file/UN1CA-a34x.zip
+          https://pixeldrain.com/api/file/
