@@ -13,5 +13,6 @@ EVAL "lz4 -d -f --rm \"$TMP_DIR/dtbo.img.lz4\" \"$TMP_DIR/dtbo.img\"" || return 
 "$SRC_DIR/scripts/unsign_bin.sh" "$TMP_DIR/dtbo.img" || return 1
 
 if ! $TARGET_DISABLE_AVB_SIGNING; then
-    SIGN_IMAGE_WITH_AVB "$TMP_DIR/dtbo.img" || return 1
+    LOG "- Signing dtbo.img with AVB"
+    EVAL "avbtool add_hash_footer --image \"$TMP_DIR/dtbo.img\" --partition_size \"25165824\" --partition_name \"dtbo\" --hash_algorithm \"sha256\" --algorithm \"SHA256_RSA4096\" --key \"$SRC_DIR/security/avb/testkey_rsa4096.pem\"" || return 1
 fi
