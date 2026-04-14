@@ -84,6 +84,6 @@ jobs:
 
       - name: Upload to Pixeldrain
         run: |
-          curl -T "$(ls out/UN1CA-*.zip | head -1)" \
+          curl -T "$(ls out/UN1CA*.zip | head -1)" \
           -u :${{ secrets.PIXELDRAIN_API_KEY }} \
           https://pixeldrain.com/api/file/
