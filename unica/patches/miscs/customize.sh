@@ -1,4 +1,4 @@
-SET_PROP_IF_DIFF "vendor" "ro.oem_unlock_supported" "0"
+SET_PROP_IF_DIFF "vendor" "ro.oem_unlock_supported" "1"
 
 # Better device/model detection in CoreRune
 SMALI_PATCH "system" "system/framework/framework.jar" \
